@@ -28,6 +28,7 @@ void setup() {
   size (600, 400);
   charX=300;
   charY=200;
+  sfx= new SoundFile(this, "WaterDropSoundForMidtermv2");
 }
 
 
@@ -168,8 +169,12 @@ void draw () {
             //println("you touched a waterdrop");
             charY=charY+40;
             waterCount=waterCount +.25;
-            sfx= new SoundFile(this, "WaterDropSoundForMidterm");
-          
+            sfx.play();
+
+            sfx.rate(1);
+            sfx.amp(.5);
+            sfx.pan(0);
+
 
             temp.isTouchingPlayer = false;
           }
@@ -290,7 +295,7 @@ class WaterDrop {
   float y;
   float r;
   float life=1;
-  
+
 
   WaterDrop (float _x, float _y, float _r) {
     x = _x;
