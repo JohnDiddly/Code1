@@ -1,6 +1,8 @@
 ArrayList<Mover> movers = new ArrayList<Mover>();
 ArrayList<Attractor> attractors = new ArrayList<Attractor>();
 
+float score=0;
+
 void setup() {
   size(800, 600);
   for (int i = 0; i < 50; i++) {
@@ -10,6 +12,8 @@ void setup() {
 
 void draw() {
   background(255);
+  fill(0);
+  text("Score:" + score, 200, 550);
 
   //draw target
   fill(255, 0, 0);
@@ -75,10 +79,12 @@ class Mover {
     acc.mult(0);
 
     if (pos.x<425 && pos.x>375) {
-      if (pos.y<425 && pos.y>375) {
+      if (pos.y<325 && pos.y>275) {
         hitTar = true;
-        
+        score+=1;
       }
+    } else {
+      hitTar=false;
     }
 
     if (pos.x >width-size/2) {
