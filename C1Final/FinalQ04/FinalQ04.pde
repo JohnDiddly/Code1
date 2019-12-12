@@ -31,19 +31,27 @@ void draw() {
 
   pushMatrix();
   translate(width/3, height/2);
-  rotate(theta);
+  //rotate(theta);
   pushMatrix();
-  translate(amplitude, 0);
-  rect(0, 0, 50, 50);
+  //translate(amplitude, 0);
+  translate(sin(theta)*amplitude, cos(theta)*amplitude);
+  rotate(radians(map(theta,0,TWO_PI, 0, 360)));
+  
+  rect(sin(theta)*amplitude, cos(theta)*amplitude, 50, 50);
   popMatrix();
   popMatrix();
 
   pushMatrix();
   translate(2* width/3, height/2);
-  rotate(-theta);
+  //rotate(-theta);
   pushMatrix();
-  translate(-amplitude, 0);
-  rect(0, 0, 50, 50);
+  //translate(-amplitude, 0);
+  translate(sin(-theta)*amplitude, cos(-theta)*amplitude);
+  rotate(-radians(map(theta,0,TWO_PI, 0, 360)));
+  
+  rect(sin(-theta)*amplitude, cos(-theta)*amplitude, 50, 50);
   popMatrix();
   popMatrix();
 }
+
+//basically done, rotation slightlly off
